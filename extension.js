@@ -5,7 +5,7 @@ class POST {
 			name: "POST",
 			blocks: [
 				{
-					opcode: "post_data
+					opcode: "post_data"
 					blockType: Scratch.BlockType.COMMAND,
 					text: "POST [DATA] to [URL]",
 					arguments: {
