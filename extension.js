@@ -1,17 +1,21 @@
-class GithubCloud {
+class POST {
 	getInfo() {
 		return {
-			id: "githubCloud",
-			name: "Github Cloud",
+			id: "post",
+			name: "POST",
 			blocks: [
 				{
-					opcode: "setcloud",
+					opcode: "post_data
 					blockType: Scratch.BlockType.COMMAND,
-					text: "Set Cloud to [INPUT]",
+					text: "POST [DATA] to [URL]",
 					arguments: {
-						INPUT: {
+						DATA: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: "Example"
+						},
+						URL: {
+							type: Scratch.ArgumentType.STRING,
+							defaultValue: "https://httpbin.org/post"
 						}
 					}
 				}
@@ -19,24 +23,9 @@ class GithubCloud {
 		};
 	}
 
-	setcloud({INPUT}) {
-		const apiToken = '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';
-		const repoOwner = 'ashmitiscodingpython';
-		const repoName = 'rccarcontrol';
-		const filePath = 'cloud.txt';
-		const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
-		const headers = {
-			'Authorization': `Bearer ${apiToken}`
-		};
-		try {
-			const response = await fetch(url, { headers });
-			const data = await response.json();
-			const fileSHA = data.sha;
-			return fileSHA;
-		} catch (error) {
-			return 'error';
-		}
+	post_data({DATA, URL}) {
+		
 	}
 }
 
-Scratch.extensions.register(new GithubCloud());
+Scratch.extensions.register(new POST());
